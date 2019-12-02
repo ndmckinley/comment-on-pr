@@ -18,11 +18,11 @@ if ARGV.empty?
   exit(1)
 end
 
-repo = push["repository"]["full_name"]
+repo = pr_json["repository"]["full_name"]
 pr = github.pull_request(repo, pr_json["pull_request"]["number"])
 
 if !pr
-  puts "Couldn't find an open pull request for branch with head at #{push_head}."
+  puts "Couldn't find pull request."
   exit(1)
 end
 
