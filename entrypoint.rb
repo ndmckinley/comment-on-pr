@@ -36,4 +36,10 @@ if duplicate
   exit(0)
 end
 
+if ENV["TAG_LIST"] 
+    message += "\n\n"
+    name = ENV["TAG_LIST"].split(",").sample
+    message += "@#{name}"
+end
+
 github.add_comment(repo, pr["number"], message)

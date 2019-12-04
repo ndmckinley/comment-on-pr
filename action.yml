@@ -8,6 +8,9 @@ inputs:
   msg: 
     description: Comment's message
     required: true
+  tag_list:
+    description: List of people to select from.
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
