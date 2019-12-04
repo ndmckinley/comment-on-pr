@@ -31,11 +31,6 @@ message = ARGV.join(' ')
 coms = github.issue_comments(repo, pr["number"])
 duplicate = coms.find { |c| c["user"]["login"] == "github-actions[bot]" && c["body"] == message }
 
-if duplicate
-  puts "The PR already contains this message."
-  exit(0)
-end
-
 if ENV["TAG_LIST"] 
     message += "\n\n"
     name = ENV["TAG_LIST"].split(",").sample
